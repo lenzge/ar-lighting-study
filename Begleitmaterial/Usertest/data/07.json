@@ -1,0 +1,211 @@
+{
+  "responses" : [
+    {
+      "answers" : [
+        {
+          "question" : "Ich habe mich in der Umgebung wohl gefühlt.",
+          "questionIndex" : 1,
+          "rating" : 5
+        },
+        {
+          "question" : "Ich kam mit der Aufgabe gut zurecht.",
+          "questionIndex" : 2,
+          "rating" : 4
+        },
+        {
+          "question" : "Die virtuellen Objekte verhielten sich so, wie ich es erwartet habe.",
+          "questionIndex" : 3,
+          "rating" : 2
+        },
+        {
+          "question" : "Die virtuelle Szene fügte sich glaubwürdig in den realen Raum ein.",
+          "questionIndex" : 4,
+          "rating" : 5
+        },
+        {
+          "question" : "Die Szene war visuell ansprechend.",
+          "questionIndex" : 5,
+          "rating" : 5
+        },
+        {
+          "question" : "Während des Spiels habe ich störende Auffälligkeiten bemerkt.",
+          "questionIndex" : 6,
+          "rating" : 3
+        }
+      ],
+      "isExtraLevel" : false,
+      "presetID" : "baseline-dominant",
+      "presetTitle" : "Baseline - eine dominante Lichtquelle",
+      "recordedAt" : "2026-07-24T12:56:55Z",
+      "responseKind" : "questionnaire"
+    },
+    {
+      "answers" : [
+        {
+          "question" : "Ich habe mich in der Umgebung wohl gefühlt.",
+          "questionIndex" : 1,
+          "rating" : 5
+        },
+        {
+          "question" : "Ich kam mit der Aufgabe gut zurecht.",
+          "questionIndex" : 2,
+          "rating" : 3
+        },
+        {
+          "question" : "Die virtuellen Objekte verhielten sich so, wie ich es erwartet habe.",
+          "questionIndex" : 3,
+          "rating" : 3
+        },
+        {
+          "question" : "Die virtuelle Szene fügte sich glaubwürdig in den realen Raum ein.",
+          "questionIndex" : 4,
+          "rating" : 5
+        },
+        {
+          "question" : "Die Szene war visuell ansprechend.",
+          "questionIndex" : 5,
+          "rating" : 4
+        },
+        {
+          "question" : "Während des Spiels habe ich störende Auffälligkeiten bemerkt.",
+          "questionIndex" : 6,
+          "rating" : 2
+        }
+      ],
+      "isExtraLevel" : false,
+      "presetID" : "multilight-color-true-geometry",
+      "presetTitle" : "Multi-Light mit Geometrie",
+      "recordedAt" : "2026-07-24T13:03:30Z",
+      "responseKind" : "questionnaire"
+    },
+    {
+      "answers" : [
+        {
+          "question" : "Ich habe mich in der Umgebung wohl gefühlt.",
+          "questionIndex" : 1,
+          "rating" : 5
+        },
+        {
+          "question" : "Ich kam mit der Aufgabe gut zurecht.",
+          "questionIndex" : 2,
+          "rating" : 5
+        },
+        {
+          "question" : "Die virtuellen Objekte verhielten sich so, wie ich es erwartet habe.",
+          "questionIndex" : 3,
+          "rating" : 5
+        },
+        {
+          "question" : "Die virtuelle Szene fügte sich glaubwürdig in den realen Raum ein.",
+          "questionIndex" : 4,
+          "rating" : 3
+        },
+        {
+          "question" : "Die Szene war visuell ansprechend.",
+          "questionIndex" : 5,
+          "rating" : 4
+        },
+        {
+          "question" : "Während des Spiels habe ich störende Auffälligkeiten bemerkt.",
+          "questionIndex" : 6,
+          "rating" : 1
+        }
+      ],
+      "isExtraLevel" : false,
+      "presetID" : "directional-geometry-no-shadows",
+      "presetTitle" : "Multi-Light + Grounding Shadows",
+      "recordedAt" : "2026-07-24T13:08:07Z",
+      "responseKind" : "questionnaire"
+    },
+    {
+      "answers" : [
+        {
+          "question" : "Ich habe mich in der Umgebung wohl gefühlt.",
+          "questionIndex" : 1,
+          "rating" : 4
+        },
+        {
+          "question" : "Ich kam mit der Aufgabe gut zurecht.",
+          "questionIndex" : 2,
+          "rating" : 5
+        },
+        {
+          "question" : "Die virtuellen Objekte verhielten sich so, wie ich es erwartet habe.",
+          "questionIndex" : 3,
+          "rating" : 5
+        },
+        {
+          "question" : "Die virtuelle Szene fügte sich glaubwürdig in den realen Raum ein.",
+          "questionIndex" : 4,
+          "rating" : 5
+        },
+        {
+          "question" : "Die Szene war visuell ansprechend.",
+          "questionIndex" : 5,
+          "rating" : 5
+        },
+        {
+          "question" : "Während des Spiels habe ich störende Auffälligkeiten bemerkt.",
+          "questionIndex" : 6,
+          "rating" : 1
+        }
+      ],
+      "isExtraLevel" : false,
+      "presetID" : "grounding-shadows-only",
+      "presetTitle" : "Grounding Shadows",
+      "recordedAt" : "2026-07-24T13:10:49Z",
+      "responseKind" : "questionnaire"
+    },
+    {
+      "answers" : [
+        {
+          "question" : "Ich habe mich in der Umgebung wohl gefühlt.",
+          "questionIndex" : 1,
+          "rating" : 5
+        },
+        {
+          "question" : "Ich kam mit der Aufgabe gut zurecht.",
+          "questionIndex" : 2,
+          "rating" : 5
+        },
+        {
+          "question" : "Die virtuellen Objekte verhielten sich so, wie ich es erwartet habe.",
+          "questionIndex" : 3,
+          "rating" : 5
+        },
+        {
+          "question" : "Die virtuelle Szene fügte sich glaubwürdig in den realen Raum ein.",
+          "questionIndex" : 4,
+          "rating" : 4
+        },
+        {
+          "question" : "Die Szene war visuell ansprechend.",
+          "questionIndex" : 5,
+          "rating" : 4
+        },
+        {
+          "question" : "Während des Spiels habe ich störende Auffälligkeiten bemerkt.",
+          "questionIndex" : 6,
+          "rating" : 1
+        }
+      ],
+      "isExtraLevel" : false,
+      "presetID" : "multilight-single-hard-shadow",
+      "presetTitle" : "Multi-Light Single Hard Shadow",
+      "recordedAt" : "2026-07-24T13:16:29Z",
+      "responseKind" : "questionnaire"
+    },
+    {
+      "answers" : [
+
+      ],
+      "isExtraLevel" : true,
+      "presetID" : "multilight-single-hard-shadow",
+      "presetTitle" : "Multi-Light Single Hard Shadow",
+      "recordedAt" : "2026-07-24T13:28:38Z",
+      "responseKind" : "presetSelection"
+    }
+  ],
+  "sessionID" : "346F01EB-67D9-4EA0-820C-31938E7311A7",
+  "sessionStartedAt" : "2026-07-24T12:52:14Z"
+}

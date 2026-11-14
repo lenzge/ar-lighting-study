@@ -1,0 +1,47 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (494.100.6)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    quatf xformOp:orient = (1, 0, 0, 0)
+    float3 xformOp:scale = (1, 1, 1)
+    float3 xformOp:translate = (0, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+    def "Glas" (
+        active = true
+        references = @Materials/Metallic.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (275.875, 164.5)
+        int ui:nodegraph:node:stackingOrder = 4
+        float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Material"
+        {
+            over "PreviewSurface"
+            {
+                color3f inputs:diffuseColor = (0.9830831, 0.97123533, 0.9929883) (
+                    colorSpace = "srgb_displayp3"
+                )
+                color3f inputs:emissiveColor = (0.9170312, 0.8862336, 0.8872634) (
+                    colorSpace = "srgb_displayp3"
+                )
+                float inputs:metallic = 0
+                float inputs:opacity = 0.1
+                float inputs:roughness = 0
+                int ui:nodegraph:node:stackingOrder = 51
+                string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["Advanced", "inputs:emissiveColor"]
+            }
+        }
+    }
+}
+

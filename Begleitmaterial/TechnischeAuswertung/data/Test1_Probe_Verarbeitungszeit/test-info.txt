@@ -1,0 +1,9 @@
+test=test_1_runtime_and_probe_rate
+started_at=2026-10-16T10:37:55.310Z
+finished_at=2026-10-16T10:38:55.384Z
+configured_duration_seconds=60
+analysis_delay_after_iteration_seconds=1.000
+analysis_preview_exports=false
+probe_arrival_count=8
+analysis_count=9
+notes=Release build on device recommended; keep scene and viewpoint static.

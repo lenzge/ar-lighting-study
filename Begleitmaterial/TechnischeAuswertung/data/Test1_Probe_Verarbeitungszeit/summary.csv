@@ -1,0 +1,15 @@
+metric,value,unit
+actual_duration,60.074,s
+probe_arrival_count,8,count
+observed_probe_rate,0.1297,Hz
+probe_interarrival_mean,7708.912,ms
+probe_interarrival_median,6293.305,ms
+probe_interarrival_min,2689.782,ms
+probe_interarrival_max,14403.746,ms
+analysis_count,9,count
+successful_analysis_count,9,count
+analysis_duration_mean,109.984,ms
+analysis_duration_median,112.445,ms
+analysis_duration_min,84.756,ms
+analysis_duration_max,123.302,ms
+analysis_duration_p95,120.658,ms

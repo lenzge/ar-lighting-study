@@ -1,0 +1,8 @@
+from_step,to_step,to_index,to_elapsed_seconds,to_capture_id,stable_id,same_stable_id,raw_direction_changed,raw_position_changed,raw_color_changed,raw_intensity_changed,raw_softness_changed,output_direction_changed,output_position_changed,output_color_changed,output_intensity_changed,output_softness_changed,any_output_changed,direction_gate_opportunity,direction_suppressed,color_gate_opportunity,color_suppressed,intensity_gate_opportunity,intensity_suppressed,softness_gate_opportunity,softness_suppressed,any_appearance_change_suppressed
+step-000,step-003,3,6.746,90,1,true,true,true,true,true,false,true,true,true,true,false,true,true,false,true,false,true,false,false,false,false
+step-003,step-007,7,15.748,91,1,true,true,true,true,true,false,true,true,true,true,false,true,true,false,true,false,true,false,false,false,false
+step-007,step-010,10,22.036,92,1,true,true,true,true,true,false,true,true,true,true,false,true,true,false,true,false,true,false,false,false,false
+step-010,step-017,17,36.418,93,7,false,true,true,true,true,false,true,true,true,true,false,true,false,false,false,false,false,false,false,false,false
+step-017,step-019,19,40.043,94,2,false,true,true,true,true,true,true,true,true,true,true,true,false,false,false,false,false,false,false,false,false
+step-019,step-022,22,45.408,95,7,false,true,true,true,true,true,true,true,true,true,true,true,false,false,false,false,false,false,false,false,false
+step-022,step-024,24,48.994,96,7,true,true,true,true,true,false,true,true,true,true,false,true,true,false,true,false,true,false,false,false,false

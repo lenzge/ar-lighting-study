@@ -1,0 +1,26 @@
+.DS_Store
+
+# Xcode build products and indexes
+DerivedData/
+.deriveddata/
+build/
+*.xcuserstate
+
+# Xcode user-specific workspace data
+*.xcuserdata/
+*.xcuserdatad/
+*.moved-aside
+*.xccheckout
+
+# Swift Package Manager build output
+.build/
+.swiftpm/
+
+# App packaging and archives
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Local environment files
+.env
+.env.*

@@ -1,0 +1,221 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (494.100.6)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def "Maple_Plywood" (
+        active = true
+        prepend references = @MaplePlywood.usdz@
+    )
+    {
+        color3f inputs:Basecolor_Tint = (0.80791014, 0.65107137, 0.5024049) (
+            colorSpace = "srgb_texture"
+        )
+        float2 inputs:UV_Scale = (2, 2) (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-943.07935, 381.75598)
+                    float2 sizeInSubgraph = (138.5, 53)
+                    int stackingOrderInSubgraph = 2357
+                }
+            }
+        )
+        token outputs:mtlx:surface.connect = </Root/Maple_Plywood/PreviewSurface.outputs:out>
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Dot"
+        {
+            float2 inputs:in.connect = </Root/Maple_Plywood.inputs:UV_Scale>
+            float2 ui:nodegraph:node:pos = (-617.9077, 346.29184)
+            int ui:nodegraph:node:stackingOrder = 2356
+        }
+
+        over "PreviewSurface"
+        {
+            int ui:nodegraph:node:stackingOrder = 2337
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["Advanced"]
+        }
+
+        over "Mix"
+        {
+            int ui:nodegraph:node:stackingOrder = 2336
+        }
+
+        over "BaseColor"
+        {
+            float2 inputs:texcoord.connect = </Root/Maple_Plywood/Rotate2D.outputs:out>
+            float2 inputs:uvtiling.connect = </Root/Maple_Plywood/Dot.outputs:out>
+            int ui:nodegraph:node:stackingOrder = 2339
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:texcoord"]
+        }
+
+        def Shader "Rotate2D"
+        {
+            uniform token info:id = "ND_rotate2d_vector2"
+            float inputs:amount = 90
+            float2 inputs:in.connect = </Root/Maple_Plywood/TextureCoordinates.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-595.72687, 211.03746)
+            int ui:nodegraph:node:stackingOrder = 2373
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:amount"]
+        }
+
+        over "Roughness"
+        {
+            float2 inputs:texcoord.connect = </Root/Maple_Plywood/Rotate2D.outputs:out>
+            float2 inputs:uvtiling.connect = </Root/Maple_Plywood/Dot.outputs:out>
+            int ui:nodegraph:node:stackingOrder = 2362
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
+        }
+
+        over "Metallic"
+        {
+            float2 inputs:texcoord.connect = </Root/Maple_Plywood/Rotate2D.outputs:out>
+            float2 inputs:uvtiling.connect = </Root/Maple_Plywood/Dot.outputs:out>
+        }
+
+        over "Normal"
+        {
+            float2 inputs:texcoord.connect = </Root/Maple_Plywood/Rotate2D.outputs:out>
+            float2 inputs:uvtiling.connect = </Root/Maple_Plywood/Dot.outputs:out>
+        }
+
+        def Shader "TextureCoordinates"
+        {
+            uniform token info:id = "ND_texcoord_vector2"
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-833.58264, 159.28476)
+            int ui:nodegraph:node:stackingOrder = 2366
+        }
+    }
+
+    def "table" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707964, 1.5707963, 0)
+        }
+        references = @table.usdc@
+    )
+    {
+        reorder nameChildren = ["Cube_1", "Cube", "_materials", "env_light"]
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (0.4992121, -0.49921215, 0.5007865, 0.50078666)
+        float3 xformOp:scale = (0.3, 0.30000004, 0.3)
+        float3 xformOp:translate = (0, -0.030902386, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "_materials" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Glas/Glass> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+
+        over "Cube" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Metallic/Material> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+
+            over "Cube" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/Maple_Plywood> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+
+            over "Mesh" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/Maple_Plywood> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+        }
+
+        over "Cube_002"
+        {
+            over "Cube_002" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/Scratched_Metallic_Paint> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+        }
+
+        over "Cube_003"
+        {
+            over "Cube_003" (
+                active = false
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/Scratched_Metallic_Paint> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+        }
+
+        over "Cube_004"
+        {
+            over "Cube_004" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/Scratched_Metallic_Paint> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+        }
+
+        over "Cube_001"
+        {
+            over "Cube_001" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/Scratched_Metallic_Paint> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+        }
+    }
+
+    def "Scratched_Metallic_Paint" (
+        active = true
+        prepend references = @ScratchedMetallicPaint.usdz@
+    )
+    {
+        color3f inputs:Basecolor_Tint = (0.15888578, 0.17226562, 0.17226562) (
+            colorSpace = "srgb_texture"
+        )
+        float2 inputs:UV_Scale = (10, 5)
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+}
+

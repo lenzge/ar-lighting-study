@@ -1,0 +1,608 @@
+#usda 1.0
+(
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+reorder rootPrims = ["Root", "GridMaterial"]
+
+def Xform "Root"
+{
+    reorder nameChildren = ["TableScene", "Metallic", "Matt", "Glossy", "Emissive", "Glas", "Dino_stylized", "Cube_2", "Cube_3", "Cube_1", "Cube_4", "Sphere"]
+    rel material:binding = None (
+        bindMaterialAs = "weakerThanDescendants"
+    )
+    float3 xformOp:translate = (0, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+    def Sphere "Sphere" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        reorder nameChildren = ["Collider", "InputTarget", "GridMaterial"]
+        rel material:binding = </Root/Metallic/Material> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double radius = 0.1
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, 0.7071758, -0.032939583)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (0.2, 0.2, 0.2)
+                float radius = 0.1
+                token shapeType = "Sphere"
+            }
+        }
+
+        def RealityKitComponent "InputTarget"
+        {
+            uniform token info:id = "RealityKit.InputTarget"
+        }
+    }
+
+    def "Metallic" (
+        active = true
+        references = @Materials/Metallic.usda@
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Material"
+        {
+            over "PreviewSurface"
+            {
+                color3f inputs:diffuseColor = (0.5066016, 0.5066016, 0.5066016) (
+                    colorSpace = "srgb_displayp3"
+                )
+                float inputs:metallic = 0.9
+                float inputs:roughness = 0.1
+                int ui:nodegraph:node:stackingOrder = 21
+                string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["Advanced"]
+            }
+        }
+    }
+
+    def "Matt" (
+        active = true
+        references = @Materials/Metallic.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (215.875, 104.5)
+        int ui:nodegraph:node:stackingOrder = 1
+        float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Material"
+        {
+            over "PreviewSurface"
+            {
+                color3f inputs:diffuseColor = (0.3528247, 0.53833383, 0.69922274) (
+                    colorSpace = "srgb_displayp3"
+                )
+                color3f inputs:emissiveColor = (0, 0, 0) (
+                    colorSpace = "srgb_texture"
+                )
+                float inputs:metallic = 0.5
+                float inputs:occlusion = 1
+                float inputs:roughness = 0.9
+                int ui:nodegraph:node:stackingOrder = 59
+                string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["Advanced"]
+            }
+        }
+    }
+
+    def "Glossy" (
+        active = true
+        references = @Materials/Metallic.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (235.875, 124.5)
+        int ui:nodegraph:node:stackingOrder = 2
+        float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Material"
+        {
+            over "PreviewSurface"
+            {
+                color3f inputs:diffuseColor = (0.7783203, 0.5440858, 0.18641697) (
+                    colorSpace = "srgb_displayp3"
+                )
+                float inputs:metallic = 0
+                float inputs:roughness = 0.1
+                int ui:nodegraph:node:stackingOrder = 31
+                string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["Advanced"]
+            }
+        }
+    }
+
+    def "Emissive" (
+        active = true
+        references = @Materials/Metallic.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (255.875, 144.5)
+        int ui:nodegraph:node:stackingOrder = 3
+        float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Material"
+        {
+            over "PreviewSurface"
+            {
+                color3f inputs:diffuseColor = (0.24819621, 0.7783203, 0.22955047) (
+                    colorSpace = "srgb_displayp3"
+                )
+                color3f inputs:emissiveColor = (0.21588416, 0.9170312, 0.2725466) (
+                    colorSpace = "srgb_displayp3"
+                )
+                float inputs:metallic = 0
+                float inputs:roughness = 0.1
+                int ui:nodegraph:node:stackingOrder = 39
+                string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["Advanced", "inputs:emissiveColor"]
+            }
+        }
+    }
+
+    def "Glas" (
+        active = true
+        references = @Materials/Metallic.usda@
+    )
+    {
+        reorder nameChildren = ["Glass", "Material"]
+        float2 ui:nodegraph:node:pos = (275.875, 164.5)
+        int ui:nodegraph:node:stackingOrder = 4
+        float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Material"
+        {
+            over "PreviewSurface"
+            {
+                color3f inputs:diffuseColor = (1, 0.98988575, 0.9909745) (
+                    colorSpace = "srgb_displayp3"
+                )
+                color3f inputs:emissiveColor = (0.97751975, 1, 0.98370326) (
+                    colorSpace = "srgb_displayp3"
+                )
+                float inputs:metallic = 0
+                float inputs:opacity = 0.1
+                float inputs:roughness = 0
+                int ui:nodegraph:node:stackingOrder = 46
+                string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["Advanced", "inputs:emissiveColor"]
+            }
+        }
+
+        def Material "Glass"
+        {
+            float inputs:BaseReflectionFraction = 0.04 (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (-681.1544, 153.4233)
+                        int stackingOrderInSubgraph = 580
+                    }
+                }
+            )
+            float inputs:Exp = 8 (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (-772.4065, 401.35333)
+                        int stackingOrderInSubgraph = 445
+                    }
+                }
+            )
+            float3 inputs:FractalAmplitude = (0.03, 0.03, 0.03) (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (-804.0466, 496.09464)
+                        int stackingOrderInSubgraph = 589
+                    }
+                }
+            )
+            token outputs:mtlx:surface.connect = </Root/Glas/Glass/PreviewSurface.outputs:out>
+            token outputs:realitykit:vertex.connect = None
+            float2 ui:nodegraph:node:pos = (40, 40)
+            int ui:nodegraph:node:stackingOrder = 2
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (797.2512, 323.50247)
+            int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 510
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.01
+                color3f inputs:diffuseColor = (1, 1, 1) (
+                    colorSpace = "lin_srgb"
+                )
+                color3f inputs:diffuseColor.connect = </Root/Glas/Glass/Add_1.outputs:out>
+                color3f inputs:emissiveColor.connect = </Root/Glas/Glass/Convert.outputs:out>
+                float inputs:ior
+                float inputs:metallic = 0.4
+                float3 inputs:normal
+                float inputs:occlusion
+                float inputs:opacity = 0.6
+                float inputs:opacityThreshold
+                float inputs:roughness = 0
+                token outputs:out
+                float2 ui:nodegraph:node:pos = (489.50034, 70.5005)
+                int ui:nodegraph:node:stackingOrder = 506
+                string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["Advanced"]
+            }
+
+            def Shader "Refract"
+            {
+                uniform token info:id = "ND_realitykit_refract_vector3"
+                float inputs:eta = 0.5
+                float3 inputs:in.connect = </Root/Glas/Glass/ViewDirection.outputs:out>
+                float3 inputs:normal.connect = </Root/Glas/Glass/Normal_1.outputs:out>
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (-824.14923, -92.01717)
+                int ui:nodegraph:node:stackingOrder = 403
+            }
+
+            def Shader "ViewDirection"
+            {
+                uniform token info:id = "ND_realitykit_viewdirection_vector3"
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (-1501.1351, 91.9765)
+                int ui:nodegraph:node:stackingOrder = 582
+            }
+
+            def Shader "Multiply"
+            {
+                uniform token info:id = "ND_multiply_vector3"
+                float3 inputs:in1.connect = </Root/Glas/Glass/ViewDirection.outputs:out>
+                float3 inputs:in2
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (-995.14923, 21.982826)
+                int ui:nodegraph:node:stackingOrder = 403
+            }
+
+            def Shader "Normal"
+            {
+                uniform token info:id = "ND_normal_vector3"
+                string inputs:space = "world"
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (-1527.4865, 286.7117)
+                int ui:nodegraph:node:stackingOrder = 495
+            }
+
+            def Shader "Add"
+            {
+                uniform token info:id = "ND_add_vector3"
+                float3 inputs:in1.connect = </Root/Glas/Glass/Multiply.outputs:out>
+                float3 inputs:in2.connect = </Root/Glas/Glass/Refract.outputs:out>
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (-593.14923, 33.982826)
+                int ui:nodegraph:node:stackingOrder = 403
+            }
+
+            def Shader "Normalize"
+            {
+                uniform token info:id = "ND_normalize_vector3"
+                float3 inputs:in.connect = </Root/Glas/Glass/Add.outputs:out>
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (-452.1492, -83.01717)
+                int ui:nodegraph:node:stackingOrder = 403
+            }
+
+            def Shader "EnvironmentRadiance"
+            {
+                uniform token info:id = "ND_realitykit_environment_radiance"
+                color3f inputs:baseColor = (1, 1, 1) (
+                    colorSpace = "lin_srgb"
+                )
+                half inputs:metallic = 1
+                float3 inputs:normal.connect = </Root/Glas/Glass/Normalize.outputs:out>
+                half inputs:roughness = 0.199951
+                half inputs:specular = 0
+                color3f outputs:diffuseRadiance
+                color3f outputs:specularRadiance
+                float2 ui:nodegraph:node:pos = (-215.03079, -0.922875)
+                int ui:nodegraph:node:stackingOrder = 468
+            }
+
+            def Shader "Add_1"
+            {
+                uniform token info:id = "ND_add_color3"
+                color3f inputs:in1.connect = </Root/Glas/Glass/EnvironmentRadiance.outputs:diffuseRadiance>
+                color3f inputs:in2.connect = </Root/Glas/Glass/EnvironmentRadiance.outputs:specularRadiance>
+                color3f outputs:out
+                float2 ui:nodegraph:node:pos = (-34.508453, -41.525814)
+                int ui:nodegraph:node:stackingOrder = 337
+            }
+
+            def Shader "DotProduct"
+            {
+                uniform token info:id = "ND_dotproduct_vector3"
+                float3 inputs:in1.connect = </Root/Glas/Glass/ViewDirection.outputs:out>
+                float3 inputs:in2.connect = </Root/Glas/Glass/Normal.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-1127.0537, 270.64615)
+                int ui:nodegraph:node:stackingOrder = 465
+            }
+
+            def Shader "Max"
+            {
+                uniform token info:id = "ND_max_float"
+                float inputs:in1 = 0
+                float inputs:in1.connect = None
+                float inputs:in2.connect = </Root/Glas/Glass/DotProduct.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-946.2743, 304.9662)
+                int ui:nodegraph:node:stackingOrder = 473
+            }
+
+            def Shader "Oneminus"
+            {
+                uniform token info:id = "ND_realitykit_oneminus_float"
+                float inputs:in.connect = </Root/Glas/Glass/Max.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-734.01953, 246.48047)
+                int ui:nodegraph:node:stackingOrder = 439
+            }
+
+            def Shader "Power"
+            {
+                uniform token info:id = "ND_power_float"
+                float inputs:in1.connect = </Root/Glas/Glass/Oneminus.outputs:out>
+                float inputs:in2.connect = </Root/Glas/Glass.inputs:Exp>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-594.01953, 310.48047)
+                int ui:nodegraph:node:stackingOrder = 440
+            }
+
+            def Shader "Oneminus_1"
+            {
+                uniform token info:id = "ND_realitykit_oneminus_float"
+                float inputs:in.connect = </Root/Glas/Glass.inputs:BaseReflectionFraction>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-480.15262, 204.39703)
+                int ui:nodegraph:node:stackingOrder = 449
+            }
+
+            def Shader "Multiply_1"
+            {
+                uniform token info:id = "ND_multiply_float"
+                float inputs:in1.connect = </Root/Glas/Glass/Oneminus_1.outputs:out>
+                float inputs:in2.connect = </Root/Glas/Glass/Power.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-399.23102, 259.4926)
+                int ui:nodegraph:node:stackingOrder = 450
+            }
+
+            def Shader "Add_2"
+            {
+                uniform token info:id = "ND_add_float"
+                float inputs:in1.connect = </Root/Glas/Glass.inputs:BaseReflectionFraction>
+                float inputs:in2.connect = </Root/Glas/Glass/Multiply_1.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-256.32687, 187.17967)
+                int ui:nodegraph:node:stackingOrder = 451
+            }
+
+            def Shader "Convert"
+            {
+                uniform token info:id = "ND_convert_float_color3"
+                float inputs:in.connect = </Root/Glas/Glass/Add_2.outputs:out>
+                color3f outputs:out
+                float2 ui:nodegraph:node:pos = (-92.761925, 278.4317)
+                int ui:nodegraph:node:stackingOrder = 455
+            }
+
+            def Shader "Normal_1"
+            {
+                uniform token info:id = "ND_normal_vector3"
+                string inputs:space = "world"
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (-1465.7999, 154.715)
+                int ui:nodegraph:node:stackingOrder = 498
+            }
+
+            def Shader "GeometryModifier"
+            {
+                uniform token info:id = "ND_realitykit_geometrymodifier_2_0_vertexshader"
+                float3 inputs:bitangent = (0, 0, 0)
+                color4f inputs:color = (0.604019, 0.0022766292, 0.92509437, 1) (
+                    colorSpace = "lin_srgb"
+                )
+                float3 inputs:modelPositionOffset = (0, 0, 0)
+                float3 inputs:modelPositionOffset.connect = </Root/Glas/Glass/Fractal3D.outputs:out>
+                float3 inputs:normal.connect = None
+                float2 inputs:uv0
+                float4 inputs:uv4
+                float4 inputs:uv5
+                float4 inputs:uv6
+                token outputs:out
+                float2 ui:nodegraph:node:pos = (205.84616, 511.88837)
+                int ui:nodegraph:node:stackingOrder = 551
+            }
+
+            def Shader "Fractal3D"
+            {
+                uniform token info:id = "ND_fractal3d_vector3"
+                float3 inputs:amplitude = (0.02, 0.02, 0.02)
+                float3 inputs:amplitude.connect = </Root/Glas/Glass/Multiply_2.outputs:out>
+                float inputs:diminish = 0.5
+                float inputs:lacunarity
+                int inputs:octaves = 10
+                float3 inputs:position
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (-228.53967, 484.8382)
+                int ui:nodegraph:node:stackingOrder = 581
+            }
+
+            def Shader "Time"
+            {
+                uniform token info:id = "ND_time_float"
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-1032.7976, 528.9467)
+                int ui:nodegraph:node:stackingOrder = 604
+            }
+
+            def Shader "Multiply_2"
+            {
+                uniform token info:id = "ND_multiply_vector3FA"
+                float3 inputs:in1.connect = </Root/Glas/Glass.inputs:FractalAmplitude>
+                float inputs:in2.connect = </Root/Glas/Glass/Multiply_3.outputs:out>
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (-603.8448, 515.9152)
+                int ui:nodegraph:node:stackingOrder = 590
+            }
+
+            def Shader "Multiply_3"
+            {
+                uniform token info:id = "ND_multiply_float"
+                float inputs:in1.connect = </Root/Glas/Glass/Time.outputs:out>
+                float inputs:in2 = 0.001
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-723.3, 586.5024)
+                int ui:nodegraph:node:stackingOrder = 607
+            }
+        }
+    }
+
+    def "Dino_stylized" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        customData = {
+            float3 rotationEulerHint = (-1.5835606, 5.1116595, 3.0665032e-7)
+        }
+        references = @Dino_stylized.usdc@
+    )
+    {
+        reorder nameChildren = ["Dino", "Material", "Cube"]
+        rel material:binding = </Root/Matt/Material> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        quatf xformOp:orient = (0.58545303, -0.59297395, -0.38841072, -0.39340028)
+        float3 xformOp:scale = (1, 0.99999994, 0.99999994)
+        float3 xformOp:translate = (0.25752908, 0.05571063, 0.18490094)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Dino" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Glas/Material> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float3 xformOp:translate = (2.9802325e-7, -0.0074082916, 0.5803012)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            over "Cube_008" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/Dino_stylized/Material> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+        }
+
+        over "Material"
+        {
+            over "PreviewSurface"
+            {
+                color3f inputs:diffuseColor = (0.8925256, 0.56848556, 0.13784836) (
+                    colorSpace = "srgb_texture"
+                )
+                color3f inputs:emissiveColor = (0.59947264, 0.43317083, 0.18580015) (
+                    colorSpace = "srgb_texture"
+                )
+                float inputs:occlusion = 0.5
+                float inputs:roughness = 0.6
+                int ui:nodegraph:node:stackingOrder = 24
+            }
+        }
+    }
+
+    def Cube "Cube_2" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        customData = {
+            float3 rotationEulerHint = (0, -0.6450894, 0)
+        }
+    )
+    {
+        rel material:binding = </Root/Matt/Material> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double size = 0.2
+        float2 ui:nodegraph:node:pos = (227.875, 126.5)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (0.9484319, 0, -0.31698102, 0)
+        float3 xformOp:scale = (0.3, 0.3, 0.3)
+        float3 xformOp:translate = (-0.21616963, 0.7185368, 0.12372852)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def Cube "Cube_3" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        customData = {
+            float3 rotationEulerHint = (0, 0.38674808, 0)
+        }
+    )
+    {
+        rel material:binding = </Root/Matt/Material> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double size = 0.2
+        float2 ui:nodegraph:node:pos = (247.875, 146.5)
+        int ui:nodegraph:node:stackingOrder = 2
+        quatf xformOp:orient = (0.98136145, 0, 0.19217113, 0)
+        float3 xformOp:scale = (0.3, 0.3, 0.3)
+        float3 xformOp:translate = (-0.19544819, 0.7811207, 0.108004935)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def Cube "Cube_1" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        customData = {
+            float3 rotationEulerHint = (0, 0.46784043, 0)
+        }
+    )
+    {
+        rel material:binding = </Root/Matt/Material> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double size = 0.2
+        float2 ui:nodegraph:node:pos = (215.75, 104.5)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (0.9727652, 0, 0.23179275, 0)
+        float3 xformOp:scale = (0.3, 0.3, 0.3)
+        float3 xformOp:translate = (-0.15711477, 0.63832974, 0.16758734)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def Cube "Cube_4" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Root/Matt/Material> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double size = 0.2
+        quatf xformOp:orient = (0.99999994, -4.2146848e-8, 6.1564506e-15, 4.8584946e-15)
+        float3 xformOp:scale = (0.39999983, 0.3999998, 0.3999998)
+        float3 xformOp:translate = (-0.22700149, 0.64920413, 0.091911614)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+}
+

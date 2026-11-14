@@ -1,0 +1,16 @@
+test=test_4_fps_stress
+measurement_kind=realitykit_scene_update_rate
+scenario=threeDirectionalsThreeShadows
+scenario_title=3 Directionals, 3 Schatten
+started_at=2026-10-21T08:45:18.952Z
+finished_at=2026-10-21T08:45:49.043Z
+completed=true
+configured_warmup_seconds=10
+configured_measurement_seconds=30
+active_directional_lights=3
+active_dynamic_shadows=3
+environment_lighting_enabled=true
+grounding_shadows_enabled=true
+probe_analysis_running=false
+debug_visualizations_enabled=false
+notes=SceneEvents.Update approximates RealityKit frame rate; verify a representative run with Instruments when possible.

@@ -1,0 +1,26 @@
+#usda 1.0
+(
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def Material "ShadowReceiverMaterial"
+    {
+        token outputs:mtlx:surface.connect = </Root/ShadowReceiverMaterial/OcclusionSurface.outputs:out>
+        token outputs:realitykit:vertex
+        token outputs:surface
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (345.25, 50.5)
+
+        def Shader "OcclusionSurface"
+        {
+            uniform token info:id = "ND_realitykit_occlusion_surfaceshader"
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (98.5, 50.5)
+            int ui:nodegraph:node:stackingOrder = 3
+        }
+    }
+}
+
